@@ -2,7 +2,7 @@
 
 Arduino library for controlling single-wire-based LED pixels and strip such as the [Adafruit 60 LED/meter Digital LED strip][strip], the [Adafruit FLORA RGB Smart Pixel][flora], the [Adafruit Breadboard-friendly RGB Smart Pixel][pixel], the [Adafruit NeoPixel Stick][stick], and the [Adafruit NeoPixel Shield][shield].
 
-After downloading, rename folder to 'Adafruit_NeoPixel' and install in Arduino Libraries folder. Restart Arduino IDE, then open File->Sketchbook->Library->Adafruit_NeoPixel->strandtest sketch.
+After downloading, rename folder to 'Adafruit_NeoPixel' and install in Arduino Libraries folder. Restart Arduino IDE, then open *File* → *Sketchbook* → *Library* → *Adafruit_NeoPixel* → *strandtest* sketch.
 
 Compatibility notes: Port A is not supported on any AVR processors at this time
 
@@ -60,6 +60,7 @@ Compatibility notes: Port A is not supported on any AVR processors at this time
   - Infineon XMC1100 BootKit @ 32 MHz
   - Infineon XMC1100 2Go @ 32 MHz
   - Infineon XMC1300 BootKit  @ 32 MHz
+  - Infineon XMC1400 2Go @ 48 MHz
   - Infineon XMC4700 RelaxKit, XMC4800 RelaxKit, XMC4800 IoT Amazon FreeRTOS Kit @ 144 MHz
   - Sipeed Maix Bit (K210 processor)
 
