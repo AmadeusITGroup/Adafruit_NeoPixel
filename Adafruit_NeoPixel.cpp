@@ -272,11 +272,13 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       // High 800ns
       *set = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop;"
+#if CH32_F_CPU >= 56000000
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+#endif
 #if CH32_F_CPU >= 72000000
         "nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop;"
@@ -300,8 +302,10 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       // Low 450ns
       *clr = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop;"
+#if CH32_F_CPU >= 56000000
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+#endif
 #if CH32_F_CPU >= 72000000
         "nop; nop; nop; nop; nop; nop; nop; nop; nop;"
 #endif
@@ -320,8 +324,10 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       // High 400ns
       *set = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop;"
+#if CH32_F_CPU >= 56000000
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+#endif
 #if CH32_F_CPU >= 72000000
         "nop; nop; nop; nop; nop; nop; nop;"
 #endif
@@ -340,10 +346,12 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       // Low 850ns
       *clr = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
-//        "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop;"
+#if CH32_F_CPU >= 56000000
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+        "nop; nop; nop; nop; nop; nop; nop; nop;"
+#endif
 #if CH32_F_CPU >= 72000000
         "nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
