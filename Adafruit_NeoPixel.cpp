@@ -22,7 +22,7 @@
  * Written by Phil "Paint Your Dragon" Burgess for Adafruit Industries,
  * with contributions by PJRC, Michael Miller and other members of the
  * open source community.
- * Minor change in timing 20260126 by Maxint-RD
+ * Minor change in timing for CH32 @48MHz by Maxint-RD 20260126.
  *
  * @section license License
  *
@@ -274,9 +274,9 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       *set = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
-        "nop;"
+        "nop; nop; nop; nop; nop; nop; nop;"
 #if CH32_F_CPU >= 56000000
-        "nop; nop; nop; nop; nop; nop; nop; nop;"
+        "nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
 #endif
@@ -302,9 +302,9 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
 
       // Low 450ns
       *clr = ch_pin;
-      __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-        "nop;"
+      __asm volatile ("nop; nop;"
 #if CH32_F_CPU >= 56000000
+        "nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
 #endif
 #if CH32_F_CPU >= 72000000
@@ -325,9 +325,8 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       // High 400ns
       *set = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-        "nop;"
 #if CH32_F_CPU >= 56000000
-        "nop; nop; nop; nop; nop; nop; nop; nop;"
+        "nop; nop; nop; nop; nop; nop; nop; nop; nop;"
 #endif
 #if CH32_F_CPU >= 72000000
         "nop; nop; nop; nop; nop; nop; nop;"
@@ -347,8 +346,9 @@ static void ch32Show(GPIO_TypeDef* ch_port, uint32_t ch_pin, uint8_t* pixels, ui
       // Low 850ns
       *clr = ch_pin;
       __asm volatile ("nop; nop; nop; nop; nop; nop; nop; nop;"
-        "nop; nop; nop; nop; nop;"
+        "nop; nop; nop; nop;"
 #if CH32_F_CPU >= 56000000
+        "nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
         "nop; nop; nop; nop; nop; nop; nop; nop;"
